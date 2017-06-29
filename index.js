@@ -1,38 +1,50 @@
-import React, { Component } from 'react';
-inport {
-  View,
-  PropTypes,
+import React, { Component, PropTypes } from 'react';
+import {
+  AppRegistry,
   StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback,
   NativeModules,
-  requireNativeComponent,
+  findNodeHandle
 } from 'react-native';
+import PreviewView from './PreviewView';
 
-const { RNPreviewViewManager } = NativeModules;
-const RN_PREVIEW_VIEW_REF = 'native-preview-view-ref';
+const Peekable = {};
 
-class PreviewView extends component {
+const PREVIEW_REF = 'peekable-preview';
+
+Peekable.Preview = PreviewView;
+
+Peekable.View = React.createClass({
   propTypes: {
+    renderPreview: PropTypes.func,
     onPop: PropTypes.func,
-  },
-
-  activate({ sourceView }) {
-    RNPreviewViewManager.setSourceView(sourceView);
-    RNPreviewViewManager.activate(this.getRootNodeHandle());
-  },
-
-  getRootNodeHandle() {
-    return React.findNodeHandle(this.refs[RN_PREVIEW_VIEW_REF]);
+    ...View.propTypes,
   },
 
   render() {
-    return (
-      <RNPreviewView ref={RN_PREVIEW_VIEW_REF} onPop={this.props.onPop} style={{ position: 'absolute' }}>
-        {React.Children.map(this.props.children, React.addons.cloneWithProps)}
-      </RNPreviewView>
+    let preview = (
+      <Peekable.Preview ref={PREVIEW_REF} onPop={this.props.onPop}>
+        {this.props.renderPreview()}
+      </Peekable.Preview>
     );
+
+    return (
+      <TouchableWithoutFeedback onPressIn={this._handlePressIn}>
+        <View {...this.props} ref={(view) => { this._root = view; }}>
+          {this.props.children}
+          {preview}
+        </View>
+      </TouchableWithoutFeedback>
+    )
   },
-}
 
-const RNPreviewView = requireNativeComponent('RNPreviewView', PreviewView);
+  _handlePressIn() {
+    this.refs[PREVIEW_REF].activate({
+      sourceView: findNodeHandle(this._root)
+    });
+  },
+});
 
-export default PreviewView;
+module.exports = Peekable;

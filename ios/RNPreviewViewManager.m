@@ -1,11 +1,7 @@
 #import "RNPreviewViewManager.h"
 #import "RNPreviewView.h"
-#import "RCTBridge.h"
-#import "RCTUIManager.h"
-#import "RCTSparseArray.h"
-#import "AppDelegate.h"
 #import "RootViewController.h"
-#import "RCTConvert.h"
+#import "RCTUIManager.h"
 
 @implementation RNPreviewViewManager
 
@@ -26,8 +22,8 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(setSourceView:(nonnull NSNumber *)reactTag)
 {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
-    RCTView *view = viewRegistry[reactTag];
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
+    UIView *view = viewRegistry[reactTag];
     RootViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     [rootViewController setSourceView:view];
   }];
@@ -36,7 +32,7 @@ RCT_EXPORT_METHOD(setSourceView:(nonnull NSNumber *)reactTag)
 /* Need to be able to set the target view too */
 RCT_EXPORT_METHOD(activate:(nonnull NSNumber *)reactTag)
 {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     RNPreviewView *view = viewRegistry[reactTag];
 
     if (![view isKindOfClass:[RNPreviewView class]]) {

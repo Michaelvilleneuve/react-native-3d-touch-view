@@ -10,6 +10,7 @@
 		D24D84C81F04C2EC00203E91 /* RNPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D24D84C31F04C2EC00203E91 /* RNPreviewView.m */; };
 		D24D84C91F04C2EC00203E91 /* RNPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24D84C51F04C2EC00203E91 /* RNPreviewViewController.m */; };
 		D24D84CA1F04C2EC00203E91 /* RNPreviewViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D24D84C71F04C2EC00203E91 /* RNPreviewViewManager.m */; };
+		D28E54821F04ED5900A2D94A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E54811F04ED5900A2D94A /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		D24D84C51F04C2EC00203E91 /* RNPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPreviewViewController.m; sourceTree = "<group>"; };
 		D24D84C61F04C2EC00203E91 /* RNPreviewViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPreviewViewManager.h; sourceTree = "<group>"; };
 		D24D84C71F04C2EC00203E91 /* RNPreviewViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPreviewViewManager.m; sourceTree = "<group>"; };
+		D28E54801F04ED5900A2D94A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		D28E54811F04ED5900A2D94A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				D28E54801F04ED5900A2D94A /* RootViewController.h */,
+				D28E54811F04ED5900A2D94A /* RootViewController.m */,
 				D24D84C21F04C2EC00203E91 /* RNPreviewView.h */,
 				D24D84C31F04C2EC00203E91 /* RNPreviewView.m */,
 				D24D84C41F04C2EC00203E91 /* RNPreviewViewController.h */,
@@ -124,6 +129,7 @@
 			files = (
 				D24D84C81F04C2EC00203E91 /* RNPreviewView.m in Sources */,
 				D24D84CA1F04C2EC00203E91 /* RNPreviewViewManager.m in Sources */,
+				D28E54821F04ED5900A2D94A /* RootViewController.m in Sources */,
 				D24D84C91F04C2EC00203E91 /* RNPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

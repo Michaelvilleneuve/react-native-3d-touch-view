@@ -1,17 +1,19 @@
 
 {
   "name": "react-native-3d-touch-view",
-  "version": "1.0.0",
   "description": "",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native", "3Dtouch", "ios"
+    "react-native",
+    "force touch",
+    "ios"
   ],
   "author": "Michaël Villeneuve",
-  "license": "MIT",
+  "license": "",
   "peerDependencies": {
     "react-native": "0.45.1"
   }

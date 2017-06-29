@@ -1,7 +1,6 @@
-#import "RCTView.h"
+#import <React/RCTViewManager.h>
+#import <React/RCTView.h>
 #import "RNPreviewViewController.h"
-#import "RCTBridge.h"
-#import "RCTComponent.h"
 
 @interface RNPreviewView : RCTView
 
